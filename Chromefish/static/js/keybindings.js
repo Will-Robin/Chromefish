@@ -39,6 +39,8 @@ $("body").keypress(function(event){
         }
     } else if (chr == "d") {
         delete_peak();
+    } else if (chr == "S") {
+        create_report();
     } else if (chr == "p") {
         var current_pos = 0.5*(data.chromatogram[cursor.start_idx].x + data.chromatogram[cursor.end_idx].x);
 

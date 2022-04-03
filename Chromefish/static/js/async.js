@@ -49,3 +49,20 @@ function load_chromatogram (){
   });
 }
 
+function create_report(){
+
+  $.ajax({
+          type: "POST",
+          url: '/create_report',
+          data: JSON.stringify({
+                                "create_report": "",
+                              }),
+          contentType: "application/json; charset=utf-8",
+          dataType: "json",
+          success: function (d) {
+                    console.log("Peak report created!");
+                  }
+  });
+}
+
+
