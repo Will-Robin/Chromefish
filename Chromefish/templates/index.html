@@ -3,37 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>Chromatography Processing</title>
-    <link rel="stylesheet" href="">
-	<style>
-            #chart {
-                float:left;
-                width:50%;
-            }
-            #instructions {
-                float:right;
-                width:50%;
-            }
-			#instructions_text {
-                font-family:    Arial, Helvetica, sans-serif;
-                font-size:      40px;
-                font-weight:    regular;
-            }
-
-        </style> 
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'styles/styles.css') }}">
   </head>
 
   <body>
 
-	<div>
+	<div id = "grid">
+		<div id= "title">
+			<h1>Chromatography</h1>
+		</div>
+
 	  <div id="chart"></div>
 
-
-	  <div id="instructions"></div>
-
-		<div class="">
-			<input type="checkbox" id="check" name="check">
-			<label for="check"></label>
-		</div>
+	  <div id="instructions">
 
 		<p id="instructions_text">
 		<b>"Pinching" the cursor region:</b><br>
@@ -61,6 +43,11 @@
 			  src = "{{ url_for('static', filename = 'js/node_modules/d3/dist/d3.min.js') }}">
 	  </script>
 
+	  <script type="text/javascript" src = "{{ url_for('static', filename = 'js/settings.js') }}"></script>
+	  <script type="text/javascript" src = "{{ url_for('static', filename = 'js/functions.js') }}"></script>
+	  <script type="text/javascript" src = "{{ url_for('static', filename = 'js/plots.js') }}"></script>
+	  <script type="text/javascript" src = "{{ url_for('static', filename = 'js/keybindings.js') }}"></script>
+	  <script type="text/javascript" src = "{{ url_for('static', filename = 'js/async.js') }}"></script>
 	  <script type="text/javascript" src = "{{ url_for('static', filename = 'js/main.js') }}"></script>
 
   </body>
