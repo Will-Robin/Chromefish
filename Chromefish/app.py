@@ -112,7 +112,7 @@ def delete_peak():
 @app.route("/create_report", methods=["POST"])
 def create_report():
     """ """
-    out_dir = "../data"
+    out_dir = "data"
 
     for pk in chrom.peaks:
         chrom.peaks[pk].get_height(chrom)
@@ -125,7 +125,7 @@ def create_report():
 
 if __name__ == "__main__":
 
-    chromatogram_filename = "../data/example.csv"
+    chromatogram_filename = "data/example.csv"
 
     if len(sys.argv) > 1:
         chromatogram_filename = sys.argv[1]
