@@ -7,63 +7,73 @@
   </head>
 
   <body>
-	<div id = "grid">
-		<div id= "title">
-			<h1>Chromatography</h1>
-		</div>
+    <div id = "grid">
+        <div id= "title">
+            <h1>Chromatography</h1>
+        </div>
 
-		<div id="chart">
-		</div>
+        <div id="chart">
+        </div>
 
-		<div id="instructions">
-			<p id="instructions_text">
-			<b>"Pinching" the cursor region:</b><br>
-				<b>j</b>: left boundary right<br>
-				<b>k</b>: right boundary left<br>
-			<b>"Spreading" the cursor region:</b><br>
-				<b>h</b>: left boundary left<br>
-				<b>l</b>: right boundary right<br>
-			<b>Moving the cursor region: </b><br>
-				<b>[</b>: move cursor region left<br>
-				<b>]</b>: move cursor region right<br>
-			<b>Actions:</b> <br>
-				&ltreturn&gt: peak pick in region<br>
-				<b>d</b>: delete peak(s) in region<br>
-				<b>S</b>: generate a peak report (in ../data)<br>
-			</p>
-		</div>
-	</div>
+        <div id="instructions">
+            <p id="instructions_text">
+            <b>"Pinching" the cursor region:</b><br>
+                <b>j</b>: left boundary right<br>
+                <b>k</b>: right boundary left<br>
+            <b>"Spreading" the cursor region:</b><br>
+                <b>h</b>: left boundary left<br>
+                <b>l</b>: right boundary right<br>
+            <b>Moving the cursor region: </b><br>
+                <b>[</b>: move cursor region left<br>
+                <b>]</b>: move cursor region right<br>
+            <b>Actions:</b> <br>
+                &ltreturn&gt: peak pick in region<br>
+                <b>d</b>: delete peak(s) in region<br>
+                <b>S</b>: generate a peak report (in ../data)<br>
+            </p>
+        </div>
+    </div>
 
-	<script type="text/javascript"
-		src = "{{ url_for('static', filename = 'js/node_modules/jquery/dist/jquery.min.js') }}">
-	</script>
+     <form id = "submit_button">
+      <label for="fname">Directory:</label>
+      <input type="text" id="fname" name="fname"><br><br>
+      <input type="submit" value="Submit">
+    </form>
 
-	<script type="text/javascript"
-		src = "{{ url_for('static', filename = 'js/node_modules/d3/dist/d3.min.js') }}">
-	</script>
+    <script type="text/javascript"
+        src = "{{ url_for('static', filename = 'js/node_modules/jquery/dist/jquery.min.js') }}">
+    </script>
 
-	<script type="text/javascript"
-		src = "{{ url_for('static', filename = 'js/settings.js') }}">
-	</script>
+    <script type="text/javascript"
+        src = "{{ url_for('static', filename = 'js/node_modules/d3/dist/d3.min.js') }}">
+    </script>
 
-	<script type="text/javascript"
-		src = "{{ url_for('static', filename = 'js/functions.js') }}">
-	</script>
+    <script type="text/javascript"
+        src = "{{ url_for('static', filename = 'js/settings.js') }}">
+    </script>
 
-	<script type="text/javascript"
-		src = "{{ url_for('static', filename = 'js/plots.js') }}">
-	</script>
+    <script type="text/javascript"
+        src = "{{ url_for('static', filename = 'js/events.js') }}">
+    </script>
 
-	<script type="text/javascript"
-		src = "{{ url_for('static', filename = 'js/keybindings.js') }}">
-	</script>
+    <script type="text/javascript"
+        src = "{{ url_for('static', filename = 'js/functions.js') }}">
+    </script>
 
-	<script type="text/javascript"
-		src = "{{ url_for('static', filename = 'js/async.js') }}">
-	</script>
+    <script type="text/javascript"
+        src = "{{ url_for('static', filename = 'js/plots.js') }}">
+    </script>
 
-	<script type="text/javascript"
-		src = "{{ url_for('static', filename = 'js/main.js') }}">
-	</script>
+    <script type="text/javascript"
+        src = "{{ url_for('static', filename = 'js/keybindings.js') }}">
+    </script>
+
+    <script type="text/javascript"
+        src = "{{ url_for('static', filename = 'js/async.js') }}">
+    </script>
+
+    <script type="text/javascript"
+        src = "{{ url_for('static', filename = 'js/main.js') }}">
+    </script>
   </body>
 </html>
