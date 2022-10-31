@@ -19,6 +19,7 @@ function axis_setup(data, parent_element, x_scaler, y_scaler,
                   plot_dimensions){
 
   var height = plot_dimensions.height - plot_dimensions.margin_top - plot_dimensions.margin_bottom;
+
   // Show the axis that corresponds to this scale
   var y_axis = parent_element
                     .append("g")
@@ -26,7 +27,6 @@ function axis_setup(data, parent_element, x_scaler, y_scaler,
                     .attr("transform", "translate(0," + height + ")")
                     .call(d3.axisBottom(x_scaler));
 
-    console.log("helllo");
   var x_axis = parent_element
                     .append('g')
                   .style("font-size", "100em times")
