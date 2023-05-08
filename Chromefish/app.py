@@ -1,14 +1,13 @@
 import sys
 from flask import Flask, render_template, request, jsonify
 
-from ChromProcess import Classes
 from ChromProcess.Loading import chrom_from_csv
-from ChromProcess.Writers import chromatogram_to_json
 from ChromProcess.Processing import find_peaks_in_region
-from ChromProcess.Processing import add_peaks_to_chromatogram
+from ChromProcess.Writers import chrom_to_df
 
 
 app = Flask(__name__)
+
 
 def prepare_chromatogram(chrom):
     """ """
@@ -52,11 +51,11 @@ def index():
 def loadchroms():
     """ """
 
-    req = request.get_json()
+    #req = request.get_json()
 
     # Todo: load from file
-    exp_name = ""
-    align = ""
+    #exp_name = ""
+    #align = ""
 
     data = prepare_chromatogram(chrom)
 
@@ -79,7 +78,7 @@ def receive_cursor():
     # remove peaks with empty indices
     new_peaks = [p for p in peaks if len(p.indices) > 0]
 
-    add_peaks_to_chromatogram(new_peaks, chrom)
+    chrom.add_peaks(new_peaks)
 
     data = prepare_chromatogram(chrom)
 
@@ -109,22 +108,23 @@ def delete_peak():
 
     return jsonify(data)
 
+
 @app.route("/create_report", methods=["POST"])
 def create_report():
     """ """
     out_dir = "data"
 
     for pk in chrom.peaks:
-        chrom.peaks[pk].get_height(chrom)
-        chrom.peaks[pk].get_integral(chrom, baseline_subtract = True)
+        chrom.peaks[pk].height
+        chrom.peaks[pk].integral
 
-    chrom.write_peak_collection(filename = f"{out_dir}/peakCollection.csv")
+    df = chrom_to_df(chrom)
+    df.to_csv(f"{out_dir}/peakCollection.csv")
 
     return jsonify({})
 
 
 if __name__ == "__main__":
-
     chromatogram_filename = "data/example.csv"
 
     if len(sys.argv) > 1:
